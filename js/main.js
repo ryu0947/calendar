@@ -4,6 +4,7 @@
   const year = 2021;
   const month = 4; // 5月
 
+  // カレンダーの先頭の前月の日数を取得
   function getCalendarHead() {
     const dates = [];
     // 前月の末日
@@ -25,6 +26,7 @@
     console.log(dates);
   }
 
+  // 今月のカレンダーの日数の取得
   function getCalendarBody() {
     const dates = [];
     // 翌月の0日目と引数に設定すると今月の末日を取得できる
@@ -41,6 +43,7 @@
     console.log(dates);
   }
 
+  // カレンダーの末尾の翌月の日数の取得
   function getCalendarTaile() {
     const dates = [];
     // 今月の末日の曜日の取得
