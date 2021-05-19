@@ -15,8 +15,8 @@
     for (let i = 0; i < n; i++) {
       dates.unshift({
         date: d - i,
-        isTody: false,
-        isDisable: true,
+        isToday: false,
+        isDisabled: true,
       });
     }
 
@@ -32,8 +32,8 @@
     for (let i = 1; i <= lastDate; i++) {
       dates.push({
         date: i,
-        isTody: false,
-        isDisable: false,
+        isToday: false,
+        isDisabled: false,
       });
     }
 
@@ -48,8 +48,8 @@
     for (let i = 1; i < 7 - lastDay; i++) {
       dates.push({
         date: i,
-        isTody: false,
-        isDisable: true,
+        isToday: false,
+        isDisabled: true,
       });
     }
 
@@ -70,26 +70,22 @@
       weeks.push(dates.splice(0, 7));
     }
 
-    console.log(weeks);
-
     weeks.forEach((week) => {
+      const tr = document.createElement("tr");
       week.forEach((date) => {
-        const tr = document.createElement("tr");
-        const td = document.createElement("tr");
+        const td = document.createElement("td");
 
         td.textContent = date.date;
-
-        if (week.isDisable) {
-          tr.classList.add("disabled");
+        if (date.isDisabled) {
+          td.classList.add("disabled");
         }
-
-        if (week.isTody) {
+        if (date.isToday) {
           td.classList.add("today");
         }
 
         tr.appendChild(td);
-        document.querySelector("tbody").appendChild(tr);
       });
+      document.querySelector("tbody").appendChild(tr);
     });
   }
 
