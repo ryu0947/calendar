@@ -5,7 +5,7 @@
   const month = 4; // 5月
 
   function getCalendarHead() {
-    const calenderHead = [];
+    const dates = [];
     // 前月の末日
     const d = new Date(year, month, 0).getDate();
     // 今月の1日の曜日
@@ -15,14 +15,14 @@
     console.log(n);
 
     for (let i = 0; i < n; i++) {
-      calenderHead.unshift({
+      dates.unshift({
         date: d - i,
         isTody: false,
-        isDisable: false,
+        isDisable: true,
       });
     }
 
-    console.log(calenderHead);
+    console.log(dates);
   }
 
   function getCalendarBody() {
@@ -41,6 +41,22 @@
     console.log(dates);
   }
 
+  function getCalendarTaile() {
+    const dates = [];
+    // 今月の末日の曜日の取得
+    const lastDay = new Date(year, month + 1, 0).getDay();
+    for (let i = 1; i < 7 - lastDay; i++) {
+      dates.push({
+        date: i,
+        isTody: false,
+        isDisable: true,
+      });
+    }
+
+    console.log(dates);
+  }
+
   getCalendarHead();
   //   getCalendarBody();
+  getCalendarTaile();
 }
