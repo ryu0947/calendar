@@ -62,7 +62,35 @@
       ...getCalendarBody(),
       ...getCalendarTaile(),
     ];
-    console.log(...dates);
+
+    const weeks = [];
+    const weeksCount = dates.length / 7;
+
+    for (let i = 0; i < weeksCount; i++) {
+      weeks.push(dates.splice(0, 7));
+    }
+
+    console.log(weeks);
+
+    weeks.forEach((week) => {
+      week.forEach((date) => {
+        const tr = document.createElement("tr");
+        const td = document.createElement("tr");
+
+        td.textContent = date.date;
+
+        if (week.isDisable) {
+          tr.classList.add("disabled");
+        }
+
+        if (week.isTody) {
+          td.classList.add("today");
+        }
+
+        tr.appendChild(td);
+        document.querySelector("tbody").appendChild(tr);
+      });
+    });
   }
 
   cerateCalender();
