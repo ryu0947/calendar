@@ -10,7 +10,11 @@
     const lastDate = new Date(year, month + 1, 0).getDate();
 
     for (let i = 1; i <= lastDate; i++) {
-      dates.push(i);
+      dates.push({
+          date: i,
+          isTody: false,
+          isDisable: false
+      });
     }
 
     console.log(dates);
