@@ -12,9 +12,6 @@
     // 今月の1日の曜日
     const n = new Date(year, month, 1).getDay();
 
-    console.log(d);
-    console.log(n);
-
     for (let i = 0; i < n; i++) {
       dates.unshift({
         date: d - i,
@@ -23,7 +20,7 @@
       });
     }
 
-    console.log(dates);
+    return dates;
   }
 
   // 今月のカレンダーの日数の取得
@@ -40,7 +37,7 @@
       });
     }
 
-    console.log(dates);
+    return dates;
   }
 
   // カレンダーの末尾の翌月の日数の取得
@@ -56,10 +53,17 @@
       });
     }
 
-    console.log(dates);
+    return dates;
   }
 
-  getCalendarHead();
-  //   getCalendarBody();
-  getCalendarTaile();
+  function cerateCalender() {
+    const dates = [
+      ...getCalendarHead(),
+      ...getCalendarBody(),
+      ...getCalendarTaile(),
+    ];
+    console.log(...dates);
+  }
+
+  cerateCalender();
 }
