@@ -57,6 +57,10 @@
   }
 
   function cerateCalender() {
+    const tbody = document.querySelector("tbody");
+    while (tbody.firstChild) {
+      tbody.removeChild();
+    }
     const dates = [
       ...getCalendarHead(),
       ...getCalendarBody(),
