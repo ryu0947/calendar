@@ -1,8 +1,10 @@
 "use strict";
 
 {
-  const year = 2021;
-  const month = 4; // 5月
+  let year = 2021;
+  let month = 4; // 5月
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
 
   // カレンダーの先頭の前月の日数を取得
   function getCalendarHead() {
@@ -92,6 +94,24 @@
       document.querySelector("tbody").appendChild(tr);
     });
   }
+
+  prev.addEventListener("click", () => {
+    month--;
+    if (month < 0) {
+      year--;
+      month = 11;
+    }
+    cerateCalender();
+  });
+
+  next.addEventListener("click", () => {
+    month++;
+    if (month < 12) {
+      year++;
+      month = 0;
+    }
+    cerateCalender();
+  });
 
   cerateCalender();
 }
