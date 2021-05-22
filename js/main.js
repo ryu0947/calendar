@@ -63,6 +63,9 @@
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
     }
+
+    const title = document.getElementById("title");
+
     const dates = [
       ...getCalendarHead(),
       ...getCalendarBody(),
@@ -106,7 +109,7 @@
 
   next.addEventListener("click", () => {
     month++;
-    if (month < 12) {
+    if (month < 11) {
       year++;
       month = 0;
     }
