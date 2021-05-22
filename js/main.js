@@ -65,6 +65,7 @@
     }
 
     const title = document.getElementById("title");
+    title.textContent = `${year}/${month + 1}`;
 
     const dates = [
       ...getCalendarHead(),
