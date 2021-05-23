@@ -1,8 +1,9 @@
 "use strict";
 
 {
-  let year = 2021;
-  let month = 4; // 5月
+  const today = new Date();
+  let year = today.getFullYear();
+  let month = today.getMonth();
   const prev = document.getElementById("prev");
   const next = document.getElementById("next");
 
