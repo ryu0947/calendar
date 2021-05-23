@@ -4,6 +4,7 @@
   const today = new Date();
   let year = today.getFullYear();
   let month = today.getMonth();
+
   const prev = document.getElementById("prev");
   const next = document.getElementById("next");
 
@@ -59,15 +60,22 @@
     return dates;
   }
 
-  function cerateCalender() {
+  // カレンダーの内容をクリアする
+  function clearCalender() {
     const tbody = document.querySelector("tbody");
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
     }
+  }
 
+  // カレンダーの年月を表示する
+  function renderHead() {
     const title = document.getElementById("title");
     title.textContent = `${year}/${month + 1}`;
+  }
 
+  // 週を描画する処理
+  function renderWeek() {
     const dates = [
       ...getCalendarHead(),
       ...getCalendarBody(),
@@ -98,6 +106,13 @@
       });
       document.querySelector("tbody").appendChild(tr);
     });
+  }
+
+  // カレンダーの描画処理
+  function cerateCalender() {
+    clearCalender();
+    renderHead();
+    renderWeek();
   }
 
   prev.addEventListener("click", () => {
