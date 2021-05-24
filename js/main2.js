@@ -22,5 +22,20 @@
     }
   }
 
+  function getCalenderHead() {
+    const dates = [];
+    const lastDay = new Date(year, month, 0).getDate();
+    const day = new Date(year, month, 1).getDay();
+
+    for (let i = 0; i < day; i++) {
+      dates.unshift({
+        date: lastDay - i,
+        today: false,
+        disable: true,
+      });
+    }
+  }
+
+  getCalenderHead();
   getcalenderBody();
 }
