@@ -41,6 +41,11 @@
       });
     }
 
+    // 今年の今月の今日の日を判定して太字にする
+    if (year === today.getFullYear() && month === today.getMonth()) {
+      dates[today.getDate() - 1].isToday = true;
+    }
+
     return dates;
   }
 
