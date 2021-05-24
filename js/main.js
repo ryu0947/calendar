@@ -1,12 +1,13 @@
 "use strict";
 
 {
-  const today = new Date();
-  let year = today.getFullYear();
-  let month = today.getMonth();
+  const date = new Date();
+  let year = date.getFullYear();
+  let month = date.getMonth();
 
   const prev = document.getElementById("prev");
   const next = document.getElementById("next");
+  const today = document.getElementById("today");
 
   // カレンダーの先頭の前月の日数を取得
   function getCalendarHead() {
@@ -42,8 +43,8 @@
     }
 
     // 今年の今月の今日の日を判定して太字にする
-    if (year === today.getFullYear() && month === today.getMonth()) {
-      dates[today.getDate() - 1].isToday = true;
+    if (year === date.getFullYear() && month === date.getMonth()) {
+      dates[date.getDate() - 1].isToday = true;
     }
 
     return dates;
@@ -135,6 +136,13 @@
       year++;
       month = 0;
     }
+    cerateCalender();
+  });
+
+  today.addEventListener("click", () => {
+    year = date.getFullYear();
+    month = date.getMonth();
+
     cerateCalender();
   });
 
