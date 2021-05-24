@@ -5,7 +5,7 @@
   const year = date.getUTCFullYear();
   const month = date.getMonth();
 
-  function calenderBody() {
+  function getcalenderBody() {
     const dates = [];
     const lastDay = new Date(year, month - 1, 0).getDate();
 
@@ -22,5 +22,5 @@
     }
   }
 
-  calenderBody();
+  getcalenderBody();
 }
