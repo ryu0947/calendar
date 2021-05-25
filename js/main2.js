@@ -5,23 +5,6 @@
   const year = date.getUTCFullYear();
   const month = date.getMonth();
 
-  function getcalenderBody() {
-    const dates = [];
-    const lastDay = new Date(year, month - 1, 0).getDate();
-
-    for (let i = 1; i < lastDay + 1; i++) {
-      dates.push({
-        date: i,
-        today: false,
-        disable: false,
-      });
-    }
-
-    if (year === date.getFullYear() && month === date.getMonth()) {
-      dates[date.getDate() - 1].today = true;
-    }
-  }
-
   function getCalenderHead() {
     const dates = [];
     const lastDay = new Date(year, month, 0).getDate();
@@ -36,6 +19,37 @@
     }
   }
 
+  function getcalenderBody() {
+    const dates = [];
+    const lastDay = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 1; i < lastDay + 1; i++) {
+      dates.push({
+        date: i,
+        today: false,
+        disable: false,
+      });
+    }
+
+    if (year === date.getFullYear() && month === date.getMonth()) {
+      dates[date.getDate() - 1].today = true;
+    }
+  }
+
+  function getcalenderTaile() {
+    const dates = [];
+    const lastDay = new Date(year, month + 1, 0).getDay();
+
+    for (let i = 1; i < 7 - lastDay; i++) {
+      dates.push({
+        date: i,
+        today: false,
+        disable: true,
+      });
+    }
+  }
+
   getCalenderHead();
   getcalenderBody();
+  getcalenderTaile();
 }
