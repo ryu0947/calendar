@@ -55,12 +55,18 @@
     return dates;
   }
 
-  getCalenderHead();
-  getcalenderBody();
-  getcalenderTaile();
-
   function createCalender() {
+    const dates = [
+      ...getCalenderHead(),
+      ...getcalenderBody(),
+      ...getcalenderTaile(),
+    ];
+
+    console.log(dates);
+
     const tr = document.createElement("tr");
     const td = document.createElement("td");
   }
+
+  createCalender();
 }
