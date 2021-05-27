@@ -62,9 +62,6 @@
       ...getcalenderTaile(),
     ];
 
-    const tr = document.createElement("tr");
-    const td = document.createElement("td");
-
     const weeks = [];
     const weeksCount = dates.length / 7;
 
@@ -72,7 +69,17 @@
       weeks.push(dates.splice(0, 7));
     }
 
-    console.log(weeks);
+    weeks.forEach((week) => {
+      const tr = document.createElement("tr");
+      week.forEach(date => {
+        const td = document.createElement("td");
+        
+        td.textContent = date.date;
+
+        tr.appendChild(td);
+        document.querySelector("tbody").appendChild(tr);
+      });
+    });
   }
 
   createCalender();
