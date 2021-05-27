@@ -2,7 +2,7 @@
 
 {
   const date = new Date();
-  const year = date.getUTCFullYear();
+  const year = date.getFullYear();
   const month = date.getMonth();
 
   function getCalenderHead() {
@@ -24,6 +24,8 @@
   function getcalenderBody() {
     const dates = [];
     const lastDay = new Date(year, month + 1, 0).getDate();
+    const title = document.getElementById("title");
+    title.textContent = `${year}/${month + 1}`;
 
     for (let i = 1; i < lastDay + 1; i++) {
       dates.push({
