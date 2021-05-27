@@ -62,10 +62,17 @@
       ...getcalenderTaile(),
     ];
 
-    console.log(dates);
-
     const tr = document.createElement("tr");
     const td = document.createElement("td");
+
+    const weeks = [];
+    const weeksCount = dates.length / 7;
+
+    for (let i = 0; i < weeksCount; i++) {
+      weeks.push(dates.splice(0, 7));
+    }
+
+    console.log(weeks);
   }
 
   createCalender();
