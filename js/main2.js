@@ -17,6 +17,8 @@
         disable: true,
       });
     }
+
+    return dates;
   }
 
   function getcalenderBody() {
@@ -34,6 +36,8 @@
     if (year === date.getFullYear() && month === date.getMonth()) {
       dates[date.getDate() - 1].today = true;
     }
+
+    return dates;
   }
 
   function getcalenderTaile() {
@@ -47,12 +51,13 @@
         disable: true,
       });
     }
+
+    return dates;
   }
 
   getCalenderHead();
   getcalenderBody();
   getcalenderTaile();
-
 
   function createCalender() {
     const tr = document.createElement("tr");
