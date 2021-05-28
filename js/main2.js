@@ -118,4 +118,10 @@
     }
     createCalender();
   });
+
+  document.getElementById("today").addEventListener("click", () => {
+    year = new Date().getFullYear();
+    month = new Date().getMonth();
+    createCalender();
+  });
 }
