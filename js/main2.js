@@ -109,4 +109,13 @@
     }
     createCalender();
   });
+
+  document.getElementById("next").addEventListener("click", () => {
+    month++;
+    if (month > 11) {
+      year++;
+      month = 0;
+    }
+    createCalender();
+  });
 }
