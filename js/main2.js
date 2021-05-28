@@ -14,7 +14,7 @@
       dates.unshift({
         date: lastDay - i,
         today: false,
-        disable: true,
+        disabled: true,
       });
     }
 
@@ -31,7 +31,7 @@
       dates.push({
         date: i,
         today: false,
-        disable: false,
+        disabled: false,
       });
     }
 
@@ -50,7 +50,7 @@
       dates.push({
         date: i,
         today: false,
-        disable: true,
+        disabled: true,
       });
     }
 
@@ -73,9 +73,18 @@
 
     weeks.forEach((week) => {
       const tr = document.createElement("tr");
-      week.forEach(date => {
+      week.forEach((date) => {
         const td = document.createElement("td");
-        
+
+        console.log(date);
+        if (date.today) {
+          td.classList.add("today");
+        }
+
+        if (date.disabled) {
+          td.classList.add("disabled");
+        }
+
         td.textContent = date.date;
 
         tr.appendChild(td);
