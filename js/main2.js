@@ -2,8 +2,8 @@
 
 {
   const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth();
+  let year = date.getFullYear();
+  let month = date.getMonth();
 
   function getCalenderHead() {
     const dates = [];
@@ -58,6 +58,13 @@
   }
 
   function createCalender() {
+    const tbody = document.querySelector("tbody");
+    const tr = document.querySelectorAll("tr");
+
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
+
     const dates = [
       ...getCalenderHead(),
       ...getcalenderBody(),
@@ -76,7 +83,6 @@
       week.forEach((date) => {
         const td = document.createElement("td");
 
-        console.log(date);
         if (date.today) {
           td.classList.add("today");
         }
@@ -94,4 +100,13 @@
   }
 
   createCalender();
+
+  document.getElementById("prev").addEventListener("click", () => {
+    month--;
+    if (month < 0) {
+      year--;
+      month = 11;
+    }
+    createCalender();
+  });
 }
